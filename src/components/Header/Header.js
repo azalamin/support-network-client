@@ -1,10 +1,11 @@
 import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../logos/logo.png";
 import "./Header.css";
 
 const Header = () => {
+  const navigate = useNavigate();
   return (
     <header className="header">
       <Navbar collapseOnSelect expand="lg">
@@ -27,7 +28,9 @@ const Header = () => {
               <Nav.Link as={Link} to="/">
                 Blog
               </Nav.Link>
-              <button className="btn btn-primary mx-lg-4 my-3 my-lg-0">Register</button>
+              <button onClick={() => navigate('/register')} className="btn btn-primary mx-lg-4 my-3 my-lg-0">
+                Register
+              </button>
               <button className="btn btn-secondary">Admin</button>
             </Nav>
           </Navbar.Collapse>
