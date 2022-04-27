@@ -1,41 +1,11 @@
 import React from "react";
-import { Container, Nav, Navbar } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
-import logo from "../../logos/logo.png";
+import NavBar from "../NavBar/NavBar";
 import "./Header.css";
 
 const Header = () => {
-  const navigate = useNavigate();
   return (
     <header className="header">
-      <Navbar collapseOnSelect expand="lg">
-        <Container>
-          <Navbar.Brand href="#home">
-            <img src={logo} alt="" />
-          </Navbar.Brand>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="ms-auto">
-              <Nav.Link as={Link} to="/">
-                Home
-              </Nav.Link>
-              <Nav.Link as={Link} to="/">
-                Donation
-              </Nav.Link>
-              <Nav.Link as={Link} to="/">
-                Events
-              </Nav.Link>
-              <Nav.Link as={Link} to="/">
-                Blog
-              </Nav.Link>
-              <button onClick={() => navigate('/register')} className="btn btn-primary mx-lg-4 my-3 my-lg-0">
-                Register
-              </button>
-              <button className="btn btn-secondary">Admin</button>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
+      <NavBar />
       <div className="container">
         <h1 className="text-center mt-3 text-uppercase">
           No one has ever become poor by giving
