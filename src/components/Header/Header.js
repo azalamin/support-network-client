@@ -1,4 +1,5 @@
 import React from "react";
+import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import logo from "../../logos/logo.png";
 import "./Header.css";
@@ -6,59 +7,37 @@ import "./Header.css";
 const Header = () => {
   return (
     <header className="header">
-      <nav className="navbar navbar-expand-lg navbar-light">
-        <div className="container">
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarTogglerDemo03"
-            aria-controls="navbarTogglerDemo03"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-            <Link className="navbar-brand" to="/">
-              <img src={logo} alt="" />
-            </Link>
-            <ul className="navbar-nav ms-auto  mb-2 mb-lg-0">
-              <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="">
-                  Home
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/">
-                  Donation
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/">
-                  Events
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/">
-                  Blog
-                </Link>
-              </li>
-              <li className="nav-item mx-3">
-                <button className="btn btn-primary">Register</button>
-              </li>
-              <li className="nav-item">
-                <button className="btn btn-secondary">Admin</button>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+      <Navbar collapseOnSelect expand="lg">
+        <Container>
+          <Navbar.Brand href="#home">
+            <img src={logo} alt="" />
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="ms-auto">
+              <Nav.Link as={Link} to="/">
+                Home
+              </Nav.Link>
+              <Nav.Link as={Link} to="/">
+                Donation
+              </Nav.Link>
+              <Nav.Link as={Link} to="/">
+                Events
+              </Nav.Link>
+              <Nav.Link as={Link} to="/">
+                Blog
+              </Nav.Link>
+              <button className="btn btn-primary mx-lg-4 my-3 my-lg-0">Register</button>
+              <button className="btn btn-secondary">Admin</button>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
       <div className="container">
         <h1 className="text-center mt-3 text-uppercase">
           No one has ever become poor by giving
         </h1>
-        <form className="input-group mb-3 w-50 mx-auto  mt-md-4">
+        <form className="input-group mb-3 search-form mx-auto  mt-md-4">
           <input
             type="text"
             className="form-control search-field"

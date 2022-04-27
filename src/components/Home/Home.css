@@ -1,0 +1,16 @@
+.card-container {
+  position: relative;
+}
+.card-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px 0px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+}
