@@ -1,15 +1,26 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
 import { Container, Nav, Navbar } from "react-bootstrap";
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
+import auth from '../../firebase.init';
 import logo from "../../logos/logo.png";
 
 const NavBar = () => {
     const navigate = useNavigate();
+    const [user] = useAuthState(auth);
+
+    const handleLogOut = async() => {
+      await signOut(auth)
+      toast('Successfully Logout');
+    }
+    
     return (
       <div>
         <Navbar collapseOnSelect expand="lg">
           <Container>
-            <Navbar.Brand as={Link} to='/'>
+            <Navbar.Brand as={Link} to="/">
               <img src={logo} alt="" />
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -33,7 +44,11 @@ const NavBar = () => {
                 >
                   Register
                 </button>
-                <button className="btn btn-secondary">Admin</button>
+                {user ? (
+                  <button onClick={handleLogOut} className="btn btn-secondary">Logout</button>
+                ) : (
+                  <button className="btn btn-secondary">Admin</button>
+                )}
               </Nav>
             </Navbar.Collapse>
           </Container>

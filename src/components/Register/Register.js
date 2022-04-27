@@ -21,7 +21,7 @@ const Register = () => {
               <div className="card" style={{ borderRadius: "15px" }}>
                 <div className="card-body p-5">
                   <h2 className="text-uppercase text-center mb-5">
-                    Register as a Volunteer
+                    Register as a Supporter
                   </h2>
 
                   <form>

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useAuthState, useSignInWithGoogle } from "react-firebase-hooks/auth";
+import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import logo from "../../logos/logo.png";
@@ -11,7 +11,6 @@ const Login = () => {
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
   const location = useLocation();
   const from = location?.state?.from?.pathname || "/";
-  const [authUser] = useAuthState(auth);
 
   useEffect(() => {
     if (user) {
@@ -20,9 +19,9 @@ const Login = () => {
   }, [user]);
 
   const handleGoogleSignIn = async() => {
-   await signInWithGoogle()
-   navigate(from, { replace: true });
-  }
+    await signInWithGoogle();
+    navigate(from, { replace: true });
+  };
 
   return (
     <div>
