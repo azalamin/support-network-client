@@ -4,6 +4,25 @@ import logo from "../../logos/logo.png";
 
 const Register = () => {
   const navigate = useNavigate();
+  const handleRegistration = (event) => {
+    event.preventDefault();
+    const name = event.target.name.value;
+    const email = event.target.email.value;
+    const date = event.target.date.value;
+    const description = event.target.description.value;
+    const organize = event.target.organize.value;
+    const supporter = { name, email, date, description, organize };
+
+    fetch("http://localhost:5000/supporter", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(supporter),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  };
   return (
     <div>
       <div className="text-center mt-5">
@@ -24,12 +43,13 @@ const Register = () => {
                     Register as a Supporter
                   </h2>
 
-                  <form>
+                  <form onSubmit={handleRegistration}>
                     <div className="form-outline mb-2">
                       <input
                         type="text"
                         id="form3Example1cg"
                         className="form-control form-control-lg"
+                        name="name"
                         required
                       />
                       <label className="form-label" htmlFor="form3Example1cg">
@@ -42,6 +62,7 @@ const Register = () => {
                         type="text"
                         id="form3Example3cg"
                         className="form-control form-control-lg"
+                        name="email"
                         required
                       />
                       <label className="form-label" htmlFor="form3Example3cg">
@@ -54,6 +75,7 @@ const Register = () => {
                         type="date"
                         id="form3Example4cg"
                         className="form-control form-control-lg"
+                        name="date"
                       />
                       <label className="form-label" htmlFor="form3Example4cg">
                         Date
@@ -65,6 +87,7 @@ const Register = () => {
                         type="text"
                         id="form3Example4cdg"
                         className="form-control form-control-lg"
+                        name="description"
                         required
                       />
                       <label className="form-label" htmlFor="form3Example4cdg">
@@ -76,6 +99,7 @@ const Register = () => {
                         type="text"
                         id="form3Example4cdg3"
                         className="form-control form-control-lg"
+                        name="organize"
                         required
                       />
                       <label className="form-label" htmlFor="form3Example4cdg3">
