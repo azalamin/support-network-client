@@ -6,6 +6,7 @@ import BookingDetails from "./components/BookingDetails/BookingDetails";
 import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
+import SupporterList from "./components/SupporterList/SupporterList";
 import RequireAuth from "./RequireAuth/RequireAuth";
 
 function App() {
@@ -36,6 +37,14 @@ function App() {
           element={
             <RequireAuth>
               <AddEvent />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/supporterList"
+          element={
+            <RequireAuth>
+              <SupporterList />
             </RequireAuth>
           }
         />

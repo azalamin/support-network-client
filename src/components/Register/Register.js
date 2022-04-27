@@ -23,7 +23,7 @@ const Register = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        toast('Registration Successful.');
+        toast('Registration successful.');
         event.target.reset();
       });
   };

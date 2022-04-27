@@ -22,7 +22,7 @@ const AddEvent = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        toast("Event Added Successfully");
+        toast("Event added successfully");
         event.target.reset();
         console.log(data);
       });
