@@ -32,6 +32,7 @@ const Register = () => {
                         type="text"
                         id="form3Example1cg"
                         className="form-control form-control-lg"
+                        required
                       />
                       <label className="form-label" htmlFor="form3Example1cg">
                         Full Name
@@ -43,6 +44,7 @@ const Register = () => {
                         type="text"
                         id="form3Example3cg"
                         className="form-control form-control-lg"
+                        required
                       />
                       <label className="form-label" htmlFor="form3Example3cg">
                         Username or Email
@@ -65,6 +67,7 @@ const Register = () => {
                         type="text"
                         id="form3Example4cdg"
                         className="form-control form-control-lg"
+                        required
                       />
                       <label className="form-label" htmlFor="form3Example4cdg">
                         Description
@@ -75,6 +78,7 @@ const Register = () => {
                         type="text"
                         id="form3Example4cdg3"
                         className="form-control form-control-lg"
+                        required
                       />
                       <label className="form-label" htmlFor="form3Example4cdg3">
                         Organize books at the library.
@@ -100,7 +104,7 @@ const Register = () => {
 
                     <div className="d-flex justify-content-center">
                       <button
-                        type="button"
+                        type="submit"
                         className="btn btn-success btn-block w-100 btn-lg gradient-custom-4 text-body"
                         disabled={!terms}
                       >
