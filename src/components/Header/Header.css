@@ -1,0 +1,11 @@
+.header {
+  background-image: url("../../images/top-banner.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  padding-bottom: 30px;
+  height: fit-content;
+}
+.search-field {
+  padding: 13px 10px;
+}
