@@ -29,10 +29,10 @@ const NavBar = () => {
                 <Nav.Link as={Link} to="/">
                   Home
                 </Nav.Link>
-                <Nav.Link as={Link} to="/">
+                <Nav.Link as={Link} to="/addEvent">
                   Donation
                 </Nav.Link>
-                <Nav.Link as={Link} to="/">
+                <Nav.Link as={Link} to="/booking">
                   Events
                 </Nav.Link>
                 <Nav.Link as={Link} to="/">
