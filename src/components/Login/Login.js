@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
-import auth from '../../firebase.init';
+import auth from "../../firebase.init";
 import logo from "../../logos/logo.png";
 import Loading from "../Loading/Loading";
 import "./Login.css";
@@ -15,10 +15,12 @@ const Login = () => {
       navigate("/home");
     }
   }, [user]);
-  
+
   return (
     <div>
-      { loading ? <Loading /> :
+      {loading ? (
+        <Loading />
+      ) : (
         <>
           <div className="text-center mt-5">
             <img
@@ -56,9 +58,14 @@ const Login = () => {
                 </span>
               </small>
             </p>
+            {error ? (
+              <small className="text-danger">{error.message}</small>
+            ) : (
+              ""
+            )}
           </div>
         </>
-      }
+      )}
     </div>
   );
 };
