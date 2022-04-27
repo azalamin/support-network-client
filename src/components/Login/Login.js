@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import { useSignInWithGoogle } from "react-firebase-hooks/auth";
-import { useNavigate } from "react-router-dom";
+import { useAuthState, useSignInWithGoogle } from "react-firebase-hooks/auth";
+import { useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import logo from "../../logos/logo.png";
 import Loading from "../Loading/Loading";
@@ -9,12 +9,20 @@ import "./Login.css";
 const Login = () => {
   const navigate = useNavigate();
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+  const location = useLocation();
+  const from = location?.state?.from?.pathname || "/";
+  const [authUser] = useAuthState(auth);
 
   useEffect(() => {
     if (user) {
       navigate("/home");
     }
   }, [user]);
+
+  const handleGoogleSignIn = async() => {
+   await signInWithGoogle()
+   navigate(from, { replace: true });
+  }
 
   return (
     <div>
@@ -35,7 +43,7 @@ const Login = () => {
             className="w-50 border d-flex justify-content-center align-items-center mx-auto flex-column mt-5"
           >
             <h1>Login With</h1>
-            <div onClick={() => signInWithGoogle()} className="google-btn mt-3">
+            <div onClick={handleGoogleSignIn} className="google-btn mt-3">
               <div className="google-icon-wrapper">
                 <img
                   className="google-icon"

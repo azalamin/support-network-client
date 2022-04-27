@@ -1,11 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "../../logos/logo.png";
 
 const Register = () => {
   const navigate = useNavigate();
-  const [terms, setTerms] = useState(false);
-  console.log(terms);
   return (
     <div>
       <div className="text-center mt-5">
@@ -84,43 +82,14 @@ const Register = () => {
                         Organize books at the library.
                       </label>
                     </div>
-
-                    <div className="form-check d-flex justify-content-center mb-5">
-                      <input
-                        className="form-check-input me-2"
-                        type="checkbox"
-                        id="form2Example3cg"
-                        onChange={(e) => setTerms(e.target.checked)}
-                      />
-                      <label
-                        className={`form-check-label ${
-                          !terms ? "text-danger" : "text-dark"
-                        }`}
-                        htmlFor="form2Example3cg"
-                      >
-                        I agree all statements in <u>Terms of service</u>
-                      </label>
-                    </div>
-
                     <div className="d-flex justify-content-center">
                       <button
                         type="submit"
                         className="btn btn-success btn-block w-100 btn-lg gradient-custom-4 text-body"
-                        disabled={!terms}
                       >
-                        Register
+                        Registration
                       </button>
                     </div>
-
-                    <p className="text-center text-muted mt-5 mb-0">
-                      Have already an account?{" "}
-                      <span
-                        onClick={() => navigate("/login")}
-                        className="fw-bold text-body cursor"
-                      >
-                        <u>Login here</u>
-                      </span>
-                    </p>
                   </form>
                 </div>
               </div>
