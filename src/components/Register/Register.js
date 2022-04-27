@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import logo from "../../logos/logo.png";
 
 const Register = () => {
@@ -21,7 +22,10 @@ const Register = () => {
       body: JSON.stringify(supporter),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        toast('Registration Successful.');
+        event.target.reset();
+      });
   };
   return (
     <div>

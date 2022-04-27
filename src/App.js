@@ -1,6 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "./App.css";
+import AddEvent from "./components/AddEvent/AddEvent";
+import BookingDetails from "./components/BookingDetails/BookingDetails";
 import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
@@ -18,6 +20,22 @@ function App() {
           element={
             <RequireAuth>
               <Register />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/booking"
+          element={
+            <RequireAuth>
+              <BookingDetails />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/addEvent"
+          element={
+            <RequireAuth>
+              <AddEvent />
             </RequireAuth>
           }
         />
