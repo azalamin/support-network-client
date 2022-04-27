@@ -6,7 +6,7 @@ const BookingDetails = () => {
   const [events, setEvents] = useState([]);
   const [deleteEvent, setDeleteEvent] = useState({});
   useEffect(() => {
-    fetch("http://localhost:5000/event")
+    fetch("https://aqueous-harbor-33681.herokuapp.com/event")
       .then((res) => res.json())
       .then((data) => setEvents(data));
   }, [deleteEvent]);
@@ -14,7 +14,7 @@ const BookingDetails = () => {
   const handleDeleteEvent = (id) => {
     const deleteConfirm = window.confirm("Are your sure you want to delete?");
     if (deleteConfirm) {
-      fetch(`http://localhost:5000/event?eventId=${id}`, {
+      fetch(`https://aqueous-harbor-33681.herokuapp.com/event?eventId=${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

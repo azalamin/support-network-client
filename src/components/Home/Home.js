@@ -35,7 +35,7 @@ const Home = () => {
   ];
   let index = 0;
   useEffect(() => {
-    fetch("http://localhost:5000/activity")
+    fetch("https://aqueous-harbor-33681.herokuapp.com/activity")
       .then((res) => res.json())
       .then((data) => setSupports(data));
   }, []);

@@ -14,7 +14,7 @@ const Register = () => {
     const organize = event.target.organize.value;
     const supporter = { name, email, date, description, organize };
 
-    fetch("http://localhost:5000/supporter", {
+    fetch("https://aqueous-harbor-33681.herokuapp.com/supporter", {
       method: "POST",
       headers: {
         "content-type": "application/json",

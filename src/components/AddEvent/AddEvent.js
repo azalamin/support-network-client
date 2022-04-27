@@ -13,7 +13,7 @@ const AddEvent = () => {
     const imgURL = event.target.image.value;
     const eventDetails = { eventTitle, description, date, imgURL };
 
-    fetch("http://localhost:5000/event", {
+    fetch("https://aqueous-harbor-33681.herokuapp.com/event", {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -10,7 +10,7 @@ const SupporterList = () => {
   const [deleteSupporter, setSupporter] = useState({});
 
   useEffect(() => {
-    fetch("http://localhost:5000/supporter")
+    fetch("https://aqueous-harbor-33681.herokuapp.com/supporter")
       .then((res) => res.json())
       .then((data) => setSupporters(data));
   }, [deleteSupporter]);
@@ -18,7 +18,7 @@ const SupporterList = () => {
    const handleDeleteSupporter = (id) => {
      const deleteConfirm = window.confirm("Are your sure you want to delete?");
      if (deleteConfirm) {
-       fetch(`http://localhost:5000/supporter?eventId=${id}`, {
+       fetch(`https://aqueous-harbor-33681.herokuapp.com/supporter?eventId=${id}`, {
          method: "DELETE",
        })
          .then((res) => res.json())
